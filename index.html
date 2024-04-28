@@ -27,8 +27,8 @@ section {
 
 /* Hero Section */
 #hero {
-    background: linear-gradient(to bottom, rgba(128, 197, 132, 0.83), rgba(153, 232, 157, 0.824)), 
-    url('static/images/decking.jpg') no-repeat center center/cover;
+    background: 
+    url('static/images/deckimage.webp') no-repeat center center/cover;
     
     color: white;
     padding: 40px 20px;
@@ -41,7 +41,8 @@ section {
 
 
 #hero h1 {
-    margin: 0;
+    margin-top: -50px
+    ;
     font-size: 2.5em;
 }
 
@@ -90,7 +91,19 @@ section {
     justify-content: space-between;
     align-items: center;
     padding: 5px;
+    position: relative; /* Required for absolute positioning of the pseudo-element */
 }
+
+.header::after {
+    content: ""; /* Creates the pseudo-element */
+    position: absolute; /* Positions it relative to the header */
+    bottom: 0; /* Align to the bottom edge */
+    left: 0; /* Start from the left edge */
+    height: 3px; /* Thickness of the border */
+    width: 65%; /* Spans 75% across the header */
+    background-color: #99E89D; /* Border color */
+}
+
 
 .openworklogo {
     margin-left: 10px;
@@ -190,9 +203,9 @@ section {
 }
 
 #sign-up-button {
-    background-color: #ffffff; /* Button background color */
-    color: #ff7148; /* Button text color */
-    border: 2px solid #ff7148; /* Button border */
+    background-color: #99E89D; /* Button background color */
+    color: #ffffff; /* Button text color */
+    border: 2px solid #555555; /* Button border */
     padding: 10px 20px;
     border-radius: 5px;
     font-size: 1em;
@@ -201,8 +214,8 @@ section {
 }
 
 #sign-up-button:hover {
-    background-color: #ff7148; /* Button hover background color */
-    color: #ffffff; /* Button hover text color */
+    background-color: #ffffff; /* Button hover background color */
+    color: #99E89D; /* Button hover text color */
 }
 #about-app {
     display: flex;
@@ -536,7 +549,7 @@ p {
 }
 
 .process-stage img {
-    width: 90%; /* Image fills the width of its container */
+    width: 80%; /* Image fills the width of its container */
     height: 220px; /* Set a fixed height for consistency */
     object-fit: cover; /* Ensures image fits without distorting */
     border-radius: 10px; /* Round corners for a consistent look */
@@ -740,7 +753,88 @@ p {
         grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
     }
 }
+        /* Example styling for the section with a background image */
+        .product-section {
+            
+            background-image: url("static/images/deckphoto.jpg") ; /* Set your background image */
+            border-radius: 5px;
+            background-size:cover; /* Ensure the image covers the entire section */
+            background-position: center; /* Center the background image */
+            padding: 50px 20px; /* Padding for the content */
+            
+            text-align: center; /* Center-align the text */
+            color: rgba(255, 255, 255, 0.918); /* White text for contrast against the background */
+        }
 
+        .product-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .product-section p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .product-section a {
+    text-decoration: none; /* No underline on the link */
+    color: white; /* White text for the link */
+
+    background: #99E89D;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+		border-radius: 5px;
+		margin-top: 15px;
+        }
+
+        .product-section a:hover {
+            background-color: #e8592e; /* Darker on hover */
+        }
+   .consult-link {
+            background-color: #99E89D; /* Green background */
+            height: 20px; /* Fixed height */
+            padding: 2px 10px; /* Small padding for comfort */
+            display: inline-block; /* Makes it behave like a block */
+            text-decoration: none; /* No underline */
+            color: white; /* White text for contrast */
+            font-size: 0.8em; /* Smaller font size */
+            text-align: center; /* Center the text */
+            border-radius: 3px; /* Slightly rounded corners */
+            transition: background-color 0.3s; /* Smooth transition on hover */
+        }
+
+        .consult-link:hover {
+            background-color: #86D494; /* Lighter green on hover */
+        }
+
+        /* Container to center the link */
+        .consult-link-container {
+            text-align: center; /* Center the link in its container */
+            margin: 10px 0; /* Add some vertical margin */
+        }
+                .nav-bar {
+            background-color: #333; /* Dark gray background */
+            display: flex; /* Align items in a row */
+            justify-content: space-evenly; /* Even space between links */
+            padding: 10px; /* Padding for the bar */
+            position: relative; /* If you need absolute positioning */
+        }
+
+        /* Styling for the navigation links */
+        .nav-link {
+            color: white; /* White text for contrast */
+            text-decoration: none; /* No underline */
+            padding: 5px 10px; /* Padding for comfort */
+            transition: color 0.3s, background-color 0.3s; /* Smooth transition for hover effects */
+        }
+
+        .nav-link:hover {
+            background-color: #555; /* Dark gray on hover */
+            color: #99E89D; /* Change text color to orange on hover */
+            border-radius: 5px; /* Slightly rounded corners on hover */
+        }
 </style>
 </head>
 <body>
@@ -762,15 +856,23 @@ p {
         </div>
     </div>
 </header>
+ <!-- Navigation Bar below the Hero -->
+    <div class="nav-bar">
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#collage" class="nav-link">Projects</a>
+        <a href="#reviews" class="nav-link">Reviews</a>
+        <a href="#contact" class="nav-link">Contact</a>
+    </div>
 <div class="page-container">
     <!-- Hero Section -->
     <section id="hero">
         <div class="hero-container">
-            <h1>Decking and Outdoor Living Specialists</h1>
+            <h1>Decking and Outdoor Building Specialists</h1>
             <p>From a Small Job to a Grand Transformation</p>
             <button id="sign-up-button">Learn More</button> <!-- Consult Now Button -->
         </div>
      </section>
+
 <section id="services">
     <h2>Our Services</h2>
     <div class="container">
@@ -789,7 +891,11 @@ p {
         </div>
     </div>
 </section>
-
+   <div class="product-section">
+        <h2>Wide Range Of Decking Products</h2>
+        <p>We offer a comprehensive range of decking materials, including pine, hardwood, and composite, suitable for all styles and budgets.</p>
+        <a href="products.html">Learn More</a> <!-- Link to the product page -->
+    </div>
 
    <div class="titleheadphoto">
     <h2> Our Process</h2>
@@ -800,21 +906,21 @@ p {
         
         <!-- Stage 1: Original House -->
         <div class="process-stage">
-            <img src="images/karleens.png" alt="Original House">
+            <img src="static/images/karleens.png" alt="Original House">
             <h3>Step 1: Consultation</h3>
             <p>We will visit with you to discuss your plans, material selection, take measurements and go over and any necessary requirements.</p>
         </div>
 
         <!-- Stage 2: 3D Deck Design -->
         <div class="process-stage">
-            <img src="images/3Dmodel.jpg" alt="3Dmodel">
+            <img src="static/images/3Dmodel.jpg" alt="3Dmodel">
             <h3>Step 2: Design</h3>
             <p>We will work with you to create a detailed 3D rendering to visualize the deck's design and layout.</p>
         </div>
 
         <!-- Stage 3: Final Product -->
         <div class="process-stage">
-            <img src="images/frontdeck.jpg" alt="Original House">
+            <img src="static/images/frontdeck.jpg" alt="Original House">
 
             <h3>Step 3: Final Product</h3>
             <p>Our team will build your deck to bring your vision to life, creating an outdoor space you'll love.</p>
@@ -822,16 +928,7 @@ p {
     </div>
 </section>
 
-<!-- Contact Form with Google Form Embed -->
-<section id="project-submission">
-    <div class="form-container">
-        <h2>Have An Enquiry?</h2>
-        <h2>Submit Your Project Details</h2>
-        <!-- Embedding Google Form -->
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSejsYE57lb3aOUKFRGLSlV-YzHXZ1VMZ_oDFZWal1Cuf_p_OA/viewform?embedded=true" width="100%" height="850px" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
-    </div>
-</section>
 <div class="titleheadphoto">
     <h2> Photo Reel</h2>
 </div>
@@ -853,7 +950,16 @@ p {
         </div>
         </div>
     </section>
+<!-- Contact Form with Google Form Embed -->
+<section id="project-submission">
+    <div class="form-container">
+        <h2>Have An Enquiry?</h2>
+        <h2>Submit Your Project Details</h2>
+        <!-- Embedding Google Form -->
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSejsYE57lb3aOUKFRGLSlV-YzHXZ1VMZ_oDFZWal1Cuf_p_OA/viewform?embedded=true" width="100%" height="850px" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
+    </div>
+</section>
 
 
 

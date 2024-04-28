@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Decking Options</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your external CSS file -->
+    <style>
+        /* Basic styling for the page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .decking-section {
+            border-bottom: 1px solid #ccc;
+            padding: 20px 0;
+        }
+
+        .decking-section h2 {
+            font-size: 1.5em;
+            color: #555;
+        }
+
+        .decking-section p {
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        .cta-button {
+            background-color: #ff7148;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .cta-button:hover {
+            background-color: #e8592e;
+        }
+
+        /* Container for product images */
+        .image-gallery {
+            display: flex;
+            justify-content: space-around; /* Space the images evenly */
+            margin-top: 10px; /* Space between text and images */
+        }
+
+        .image-gallery img {
+            width: 30%; /* Ensure three images fit across the screen */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Slight rounding of corners */
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .image-gallery {
+                flex-direction: column; /* Stack images vertically */
+                align-items: center; /* Center images on smaller screens */
+            }
+
+            .image-gallery img {
+                width: 70%; /* Larger width for smaller screens */
+                margin-bottom: 10px; /* Space between stacked images */
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Discover the Perfect Deck for Your Home</h1>
+        <p>We offer a comprehensive range of decking materials, including pine, modified pine, hardwoods, and composite. Find the perfect deck for your lifestyle, aesthetic, and budget.</p>
+
+        <!-- Pine Decking -->
+        <div class="decking-section">
+            <h2>Radiata Pine Decking</h2>
+            <p>Radiata Pine is a classic Kiwi decking timber, offering a budget-friendly option with a lifespan of approximately 15 years with regular maintenance. It comes in two grades: 'merch pine' and 'premium pine'. This timber features natural knots and is prone to contracting and expanding with changing temperatures.</p>
+            <div class="image-gallery">
+                <img src="images/pine1.jpg" alt="Pine Decking 1">
+                <img src="images/pine2.jpg" alt="Pine Decking 2">
+                <img src="images/pine3.jpg" alt="Pine Decking 3">
+            </div>
+            <a class="cta-button" href="#">Check Your Trade Price</a>
+            <a class="cta-button" href="#">Explore Pine Decking</a>
+        </div>
+
+        <!-- Modified Pine Decking -->
+        <div class="decking-section">
+            <h2>Modified Pine Decking</h2>
+            <p>Modified Pine, such as KeyDeck, Abodo Vulcan, and Accoya, offers increased durability and resistance to cracking and warping. These alternatives to traditional pine are easily maintained and come in various colors.</p>
+            <div class="image-gallery">
+                <img src="images/modified-pine1.jpg" alt="Modified Pine 1">
+                <img src="images/modified-pine2.jpg" alt="Modified Pine 2">
+                <img src="images/modified-pine3.jpg" alt="Modified Pine 3">
+            </div>
+            <a class="cta-button" href="#">Check Your Trade Price</a>
+            <a class="cta-button" href="#">Explore Modified Pine Decking</a>
+        </div>
+
+        <!-- Hardwood Decking -->
+        <div class="decking-section">
+            <h2>Hardwood Decking</h2>
+            <p>Hardwood timbers such as kwila, kwila ShadowDeck, garapa, vitex, and purpleheart are sourced from responsibly managed tropical forests. Dense, durable, and water-resistant, these timbers require minimal maintenance.</p>
+            <div class="image-gallery">
+                <img src="images/hardwood1.jpg" alt="Hardwood 1">
+                <img src="images/hardwood2.jpg" alt="Hardwood 2">
+                <img src="images/hardwood3.jpg" alt="Hardwood 3">
+            </div>
+            <a class="cta-button" href="#">Check Your Trade Price</a>
+            <a class="cta-button" href="#">Explore Hardwood Decking</a>
+        </div>
+
+        <!-- Composite Decking -->
+        <div class="decking-section">
+            <h2>Composite Decking</h2>
+            <p>Composite decking is a highly durable, low-maintenance alternative to traditional timber. It's typically made from recycled wood fiber and plastic, providing a timber look with various finishes.</p>
+            <div class="image-gallery">
+                <img src="images/composite1.jpg" alt="Composite 1">
+                <img src="images/composite2.jpg" alt="Composite 2">
+                <img src="images/composite3.jpg" alt="Composite 3">
+            </div>
+            <a class="cta-button" href="#">Check Your Trade Price</a>
+            <a class="cta-button" href="#">Explore Composite Decking</a>
+        </div>
+    </div>
+</body>
+</html>
