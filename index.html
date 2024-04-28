@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="style.css">
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
@@ -29,6 +29,7 @@ section {
 #hero {
     background: linear-gradient(to bottom, rgba(128, 197, 132, 0.83), rgba(153, 232, 157, 0.824)), 
     url('static/images/decking.jpg') no-repeat center center/cover;
+    
     color: white;
     padding: 40px 20px;
     height: 50vh; /* This will set the height to 50% of the viewport height */
@@ -46,9 +47,9 @@ section {
 
 /* Information Section */
 #info {
-    background: #99E89D;
-		font-family: 'Roboto', sans-serif;
-		font-size: x-large;
+        background: #99E89D;
+	font-family: 'Roboto', sans-serif;
+	font-size: x-large;
         color: #ffffff;
 }
 
@@ -384,28 +385,24 @@ section {
 
 .carousel-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    height: 400px;
-    margin-bottom: 30px; /* Adjust the height as needed */
+    overflow-x: auto; /* Allow horizontal scrolling */
+    scroll-behavior: smooth; /* For smooth scrolling */
+    height: 400px; /* Adjust height as needed */
 }
 
 .carousel-slide {
-    flex: 0 0 auto;
-    max-width: 100%; /* Set maximum width for the carousel slide */
-    height: 100%; /* Ensure each slide takes up the full height of the container */
+    flex: 0 0 auto; /* No shrinking */
+    width: 100%; /* Ensure full-width for slides */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .carousel-slide img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    /* Maintain aspect ratio and fit within the container */
+    max-width: 100%; /* Keep images within the slide */
+    max-height: 100%; /* Avoid overflow */
 }
+
 
 #prevBtn, #nextBtn {
     cursor: pointer;
@@ -507,23 +504,6 @@ section {
     border-radius: 5px; /* Optional: Adds slight roundness to corners */
 }
 
-
-
-/* Hero Section */
-#hero {
-    position: relative;
-    background: linear-gradient(to bottom, rgba(153, 232, 157, 0.83), rgba(153, 232, 157, 0.824)), 
-                url("{{ url_for('static', filename='images/decking.jpg') }}") no-repeat center center/cover;
-    color: white;
-   
-    height: 50vh; /* This will set the height to 50% of the viewport height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-
 /* Additional Styles */
 
 
@@ -624,7 +604,7 @@ p {
     padding: 10px; /* Padding around the section to ensure there's space */
     text-align: left; /* Center-align the heading and content */
     color: #333;
-    padding-bottom: 70px;
+    padding-bottom: 40px;
 }
 
 .contact-section-wrapper {
@@ -648,10 +628,31 @@ p {
    
 }
 
+/* Social Media Icons */
+.social-icons {
+    display: flex; /* Flex layout to align items horizontally */
+    justify-content: left; /* Center align the icons */
+    gap: 40px; /* Space between the icons */
+}
+
 .contact-icon {
-    font-size: 2em; /* Large font size for the icon */
-    color: #99E89D; /* Dark green color for the icon */
-    margin-right: 10px; /* Spacing between icon and text */
+    font-size: 3em; /* Increase icon size */
+    color: #555; /* Default color for icons */
+}
+
+.instagram-icon {
+    color: #E1306C; /* Instagram pink */
+}
+
+.facebook-icon {
+    color: #1877F2; /* Facebook blue */
+}
+
+/* No underline for links */
+.social-icons a {
+    text-decoration: none; /* Remove underlines */
+    color: inherit; /* Inherit the icon's color */
+    font-size: 40px;
 }
 
 .contact-text {
@@ -668,6 +669,75 @@ p {
 
     .contact-item {
         margin-bottom: 0; /* Remove extra margin in horizontal layout */
+    }
+}
+
+.contact-icon {
+    font-size: 2em; /* Increase size for social media icons */
+    margin-right: 10px; /* Space between icon and text */
+}
+
+/* Set Instagram color */
+.instagram-icon {
+    color: #E1306C; /* Instagram color, using pink */
+
+}
+
+/* Set Facebook color */
+.facebook-icon {
+    color: #1877F2; /* Facebook blue */
+}
+
+/* No underline for links */
+.contact-item a {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit text color */
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .contact-details {
+        flex-direction: column; /* Stack items vertically */
+        gap: 20px; /* Increase gap between items */
+    }
+}
+
+/* Collage Grid Layout */
+.collage-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    grid-auto-rows: 200px; /* Default row height */
+    gap: 10px; /* Space between elements */
+}
+
+.collage-item {
+    background: #f5f5f5;
+    display: flex; /* Align content */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensure images don't overflow */
+    border-radius: 10px;
+}
+
+.collage-item img {
+    width: 100%; /* Ensure image fills container */
+    height: 100%; /* Fill container while maintaining aspect ratio */
+    object-fit: cover; /* Fill the space */
+}
+
+/* Staggered Layout with Spans */
+.collage-item.wide {
+    grid-column: span 2; /* Spans two columns */
+}
+
+.collage-item.tall {
+    grid-row: span 2; /* Spans two rows */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .collage-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
     }
 }
 
@@ -692,7 +762,6 @@ p {
         </div>
     </div>
 </header>
-
 <div class="page-container">
     <!-- Hero Section -->
     <section id="hero">
@@ -701,14 +770,14 @@ p {
             <p>From a Small Job to a Grand Transformation</p>
             <button id="sign-up-button">Learn More</button> <!-- Consult Now Button -->
         </div>
-</section>
+     </section>
 <section id="services">
     <h2>Our Services</h2>
     <div class="container">
         <div class="service">
             <div class="service-content">
                 <h3>Full Design & Installation Service</h3>
-                <p>When you're investing in a major decking project, you want to be certain that you understand every step of the process. From the initial consultation, we ensure you fully comprehend what goes into creating your deck.</p>
+                <p>Whether you're investing in a major decking project or a small refresh, you want to be certain that you understand every step of the process. From the initial consultation, we ensure you fully comprehend what goes into creating your deck.</p>
                 <p>We provide comprehensive 3D imaging of your proposed decking scheme, allowing you to visualize the result and make any necessary changes before the installation begins.</p>
             </div>
             
@@ -731,21 +800,22 @@ p {
         
         <!-- Stage 1: Original House -->
         <div class="process-stage">
-            <img src="{{ url_for('static', filename='images/karleens.png') }}" alt="Original House">
+            <img src="images/karleens.png" alt="Original House">
             <h3>Step 1: Consultation</h3>
             <p>We will visit with you to discuss your plans, material selection, take measurements and go over and any necessary requirements.</p>
         </div>
 
         <!-- Stage 2: 3D Deck Design -->
         <div class="process-stage">
-            <img src="{{ url_for('static', filename='images/3dmodel.jpg') }}" alt="3D Deck Design">
+            <img src="images/3Dmodel.jpg" alt="3Dmodel">
             <h3>Step 2: Design</h3>
             <p>We will work with you to create a detailed 3D rendering to visualize the deck's design and layout.</p>
         </div>
 
         <!-- Stage 3: Final Product -->
         <div class="process-stage">
-            <img src="{{ url_for('static', filename='images/frontdeck.jpg') }}" alt="Final Deck">
+            <img src="images/frontdeck.jpg" alt="Original House">
+
             <h3>Step 3: Final Product</h3>
             <p>Our team will build your deck to bring your vision to life, creating an outdoor space you'll love.</p>
         </div>
@@ -762,42 +832,31 @@ p {
 
     </div>
 </section>
-
-
-
-
 <div class="titleheadphoto">
     <h2> Photo Reel</h2>
 </div>
 <!-- Carousel Section -->
-<section id="carousel" class="wrapper">
-    <div class="carousel-container">
-        <div class="carousel-slide">
-            <img src="{{ url_for('static', filename='images/walkway.jpg') }}" alt="Image 1">
+
+    <section id="collage">
+        <div class="collage-grid">
+            <!-- Collage items with varying spans -->
+            <div class="collage-item wide"><img src="static/images/wrapdeck.jpg" alt="Wide Deck"></div>
+            <div class="collage-item"><img src="static/images/ramp2.jpg" alt="Steps"></div>
+            <div class="collage-item tall"><img src="static/images/walkway.jpg" alt="Front Deck"></div>
+            <div class="collage-item"><img src="static/images/frontdeck.jpg" alt="Onestep"></div>
+            <div class="collage-item wide"><img src="static/images/gates.jpg" alt="Gates"></div>
+            <div class="collage-item"><img src="static/images/wirerailing.webp" alt="Walkway"></div>
+            <div class="collage-item"><img src="static/images/deck.jpg" alt="Walkway"></div>
+            <div class="collage-item"><img src="static/images/fence.jpg" alt="Walkway"></div>
+            <div class="collage-item"><img src="static/images/onestep.jpg" alt="Walkway"></div>
+
         </div>
-        <div class="carousel-slide">
-            <img src="{{ url_for('static', filename='images/wrapdeck.jpg') }}" alt="Image 2">
         </div>
-        <div class="carousel-slide">
-            <img src="{{ url_for('static', filename='images/frontdeck.jpg') }}" alt="Image 3">
-        </div>
-        <div class="carousel-slide">
-            <img src="{{ url_for('static', filename='images/timberfloor.jpg') }}" alt="Image 4">
-        </div>
-        <div class="carousel-slide">
-            <img src="{{ url_for('static', filename='images/steps.jpg') }}" alt="Image 5">
-        </div>
-        <div class="carousel-slide">
-            <img src="{{ url_for('static', filename='images/deck.jpg') }}" alt="Image 6">
-        </div>
-        <div class="carousel-slide">
-            <img src="{{ url_for('static', filename='images/gates.jpg') }}" alt="Image 7">
-        </div>
-        <!-- Add more carousel slides with images as needed -->
-    </div>
-    <button id="prevBtn">❮</button>
-    <button id="nextBtn">❯</button>
-</section>
+    </section>
+
+
+
+
 <!-- Review Section -->
 <section id="reviews" class="wrapper">
     <div class="inner">
@@ -832,83 +891,40 @@ p {
 </section>
 
 <section id="contact">
-    <div class="contact-section-wrapper"> <!-- Use a unique class name -->
+    <div class="contact-section-wrapper"> <!-- Contact wrapper -->
         <h2>Contact Us</h2>
         
-        <div class="contact-details">
+        <div class="contact-details"> <!-- Contact details container -->
             <div class="contact-item">
-                <span class="contact-icon">&#9742;</span> <!-- Unicode for phone icon -->
+                <span class="contact-icon">&#9742;</span> <!-- Phone icon -->
                 <span class="contact-text">0273508828</span>
             </div>
             
             <div class="contact-item">
-                <span class="contact-icon">&#9993;</span> <!-- Unicode for email icon -->
+                <span class="contact-icon">&#9993;</span> <!-- Email icon -->
                 <span class="contact-text">minthomesolutions@outlook.co.nz</span>
+            </div>
+
+            <!-- Social media icons sitting next to each other -->
+            <div class="social-icons"> <!-- New div to contain both icons -->
+                <a href="https://www.instagram.com/yourprofile" target="_blank">
+                    <i class="fab fa-instagram instagram-icon"></i> <!-- Instagram icon -->
+                </a>
+                <a href="https://www.facebook.com/yourpage" target="_blank">
+                    <i class="fab fa-facebook facebook-icon"></i> <!-- Facebook icon -->
+                </a>
             </div>
         </div>
     </div>
 </section>
 
 
+
 <button id="back-to-top" title="Back to Top">↑</button>
 
 
 <script>
-let slideIndex = 0;
 
-// Function to display slides
-function showSlides() {
-    let slides = document.getElementsByClassName("carousel-slide");
-    
-    // Hide all slides
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-    }
-    
-    // Increment slide index
-    slideIndex++;
-    
-    // Reset slide index if it exceeds the total number of slides
-    if (slideIndex > slides.length) { 
-        slideIndex = 1;
-    }    
-
-    // Display the current slide
-    slides[slideIndex - 1].style.display = "block";  
-}
-
-// Previous button functionality
-document.getElementById('prevBtn').addEventListener('click', () => {
-    slideIndex -= 1;
-    if (slideIndex <= 0) {
-        slideIndex = document.getElementsByClassName("carousel-slide").length - 1;
-    }
-    showSlides();
-});
-
-// Next button functionality
-document.getElementById('nextBtn').addEventListener('click', () => {
-    slideIndex += 1;
-    if (slideIndex > document.getElementsByClassName("carousel-slide").length) {
-        slideIndex = 1;
-    }
-    showSlides();
-});
-
-// Initialize the carousel
-showSlides();
-
-    // Get a reference to the button
-    const signUpButton = document.getElementById('sign-up-button');
-    
-    // Get a reference to the form section
-    const formSection = document.getElementById('project-submission');
-    
-    // Add click event listener to the button
-    signUpButton.addEventListener('click', () => {
-        // Scroll to the form section smoothly
-        formSection.scrollIntoView({ behavior: 'smooth' });
-    });
 
  // Back to Top Button Element
 const backToTopButton = document.getElementById('back-to-top');
@@ -947,6 +963,8 @@ hamburgerMenu.addEventListener('click', () => {
   // Toggle the display of the dropdown menu
   dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
 });
+
+
 
 </script>
 
