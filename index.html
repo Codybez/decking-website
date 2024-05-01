@@ -14,6 +14,9 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+    max-width: 800px;
+    align-items: center;
+    margin: 0 auto
     
 }
 body, html {
@@ -29,7 +32,7 @@ section {
 #hero {
     background: 
     url('static/images/deckimage.webp') no-repeat center center/cover;
-    
+
     color: white;
     padding: 40px 20px;
     height: 50vh; /* This will set the height to 50% of the viewport height */
@@ -38,14 +41,23 @@ section {
     justify-content: center;
     text-align: center;
 }
-
-
-#hero h1 {
-    margin-top: -50px
-    ;
-    font-size: 2.5em;
+#hero-container {
+    max-width: 800px;
+    align-items: center;
 }
 
+#hero h1 {
+    margin-top: -56px
+    ;
+    font-size: 2.5em;
+
+}
+#hero p {
+    color: #979797f7;
+    margin-bottom: 80px;
+    margin-top: -30px;
+    font-size: small;
+}
 /* Information Section */
 #info {
         background: #99E89D;
@@ -205,7 +217,7 @@ section {
 #sign-up-button {
     background-color: #99E89D; /* Button background color */
     color: #ffffff; /* Button text color */
-    border: 2px solid #555555; /* Button border */
+    border: 2px solid #b1b1b153; /* Button border */
     padding: 10px 20px;
     border-radius: 5px;
     font-size: 1em;
@@ -390,45 +402,7 @@ section {
 .more-info-link:hover {
     text-decoration: underline;
 }
-/* Carousel styling */
-#carousel {
-    text-align: center;
-    margin-top: 20px;
-}
 
-.carousel-container {
-    display: flex;
-    overflow-x: auto; /* Allow horizontal scrolling */
-    scroll-behavior: smooth; /* For smooth scrolling */
-    height: 400px; /* Adjust height as needed */
-}
-
-.carousel-slide {
-    flex: 0 0 auto; /* No shrinking */
-    width: 100%; /* Ensure full-width for slides */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.carousel-slide img {
-    max-width: 100%; /* Keep images within the slide */
-    max-height: 100%; /* Avoid overflow */
-}
-
-
-#prevBtn, #nextBtn {
-    cursor: pointer;
-    background-color: #f1f1f1;
-    border: none;
-    color: black;
-    padding: 10px 15px;
-    font-size: 20px;
-}
-
-#prevBtn:hover, #nextBtn:hover {
-    background-color: #ddd;
-}
 
 .titlehead h2 {
     text-align: center;
@@ -512,10 +486,6 @@ section {
     background-color: #99E89D; /* Green color for the underline */
 }
 
-#carousel .carousel-slide img {
-    border: 3px solid #dcdcdc; /* 3px thick green border */
-    border-radius: 5px; /* Optional: Adds slight roundness to corners */
-}
 
 /* Additional Styles */
 
@@ -753,22 +723,26 @@ p {
         grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
     }
 }
-        /* Example styling for the section with a background image */
-        .product-section {
-            
-            background-image: url("static/images/deckphoto.jpg") ; /* Set your background image */
-            border-radius: 5px;
-            background-size:cover; /* Ensure the image covers the entire section */
-            background-position: center; /* Center the background image */
-            padding: 50px 20px; /* Padding for the content */
-            
-            text-align: center; /* Center-align the text */
-            color: rgba(255, 255, 255, 0.918); /* White text for contrast against the background */
-        }
+.product-section {
+    background-image: url("static/images/deckphoto.jpg"); /* Set your background image */
+    display: flex; /* Enables flexbox layout */
+    flex-direction: column; /* Arrange elements vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    background-size: cover; /* Ensure the image covers the entire section */
+    background-position: center; /* Center the background image */
+
+    text-align: center; /* Center-align the text */
+    color: rgba(255, 255, 255, 0.918); /* White text for contrast against the background */
+    padding-right: 50px;
+    height: 300px;
+}
+
 
         .product-section h2 {
             font-size: 2em;
             margin-bottom: 20px;
+            margin-left: -20px;
         }
 
         .product-section p {
@@ -779,7 +753,7 @@ p {
         .product-section a {
     text-decoration: none; /* No underline on the link */
     color: white; /* White text for the link */
-
+            
     background: #99E89D;
     color: #ffffff;
     border: none;
@@ -787,6 +761,7 @@ p {
     cursor: pointer;
 		border-radius: 5px;
 		margin-top: 15px;
+        margin-left: -20px;
         }
 
         .product-section a:hover {
@@ -820,6 +795,7 @@ p {
             justify-content: space-evenly; /* Even space between links */
             padding: 10px; /* Padding for the bar */
             position: relative; /* If you need absolute positioning */
+            display: none;
         }
 
         /* Styling for the navigation links */
@@ -835,28 +811,87 @@ p {
             color: #99E89D; /* Change text color to orange on hover */
             border-radius: 5px; /* Slightly rounded corners on hover */
         }
+
+.product-two {
+    background-image: url("static/images/pergola2.jpg"); /* Background for second section */
+    background-size: cover; /* Ensure image covers the section */
+    background-position: center; /* Center the background image */
+    color: #ffffff;
+}
+.product-three {
+    background-image: url("static/images/rail.jpg"); /* Background for second section */
+    background-size: cover; /* Ensure image covers the section */
+    background-position: center; /* Center the background image */
+}
+/* Carousel base styles */
+/* Carousel base styles */
+.carousel {
+    position: relative;
+    overflow: hidden; /* Hide overflow for smooth transitions */
+    height: 400px; /* Set height to match the slides */
+    width: 100%; /* Full width */
+}
+
+/* Track container */
+.carousel-track-container {
+    overflow: hidden; /* Hide overflow */
+    width: 100%; /* Full width */
+    height: 100%; /* Match the carousel height */
+    position: relative;
+}
+
+/* Track with all the slides */
+.carousel-track {
+    display: flex; /* Align slides horizontally */
+    transition: transform 0.5s ease-in-out; /* Smooth transition */
+}
+
+/* Each slide in the carousel */
+.carousel-slide {
+    flex: 0 0 100%; /* Each slide takes up the full width */
+    text-align: center; /* Center-align content */
+    padding: 20px; /* Adjust padding as needed */
+
+}
+
+/* Navigation dots */
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Individual dots */
+.carousel-dot {
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: #999;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+/* Active dot style */
+.carousel-dot.active {
+    background-color: #333;
+}
+
+
 </style>
 </head>
 <body>
-<header>
-    <div class="header">
-        <div class="openworklogo">
-           <h1>Mint Home Solutions</h1>
-        </div>
-        <div class="hamburger-menu">
-            <i class="fas fa-bars"></i> <!-- FontAwesome icon for hamburger -->
-            <div class="dropdown-menu"> <!-- Dropdown menu structure -->
-                <ul>
-                    <li><a href="#hero">Home</a></li> <!-- Example menu item -->
-                    <li><a href="#services">Services</a></li> <!-- Another menu item -->
-                    <li><a href="#project-submission">Contact</a></li> <!-- More items -->
-                    <li><a href="#reviews">Reviews</a></li> <!-- As many as needed -->
-                </ul>
+        <div class="header">
+            <div class="openworklogo">
+                <h1>Mint Home Solutions</h1>
+            </div>
+            <div class="hamburger-menu">
+                <i class="fas fa-bars"></i> <!-- FontAwesome icon for hamburger -->
             </div>
         </div>
-    </div>
-</header>
- <!-- Navigation Bar below the Hero -->
+    </header>
+    <!-- Initially hidden navigation bar -->
     <div class="nav-bar">
         <a href="#services" class="nav-link">Services</a>
         <a href="#collage" class="nav-link">Projects</a>
@@ -869,7 +904,11 @@ p {
         <div class="hero-container">
             <h1>Decking and Outdoor Building Specialists</h1>
             <p>From a Small Job to a Grand Transformation</p>
-            <button id="sign-up-button">Learn More</button> <!-- Consult Now Button -->
+     <!-- Link the button to a specific section by wrapping it with an anchor tag -->
+            <a href="#project-submission">
+            <button id="sign-up-button">Job Enquiries</button> <!-- The button is now clickable and links to the specified section -->
+</a>
+
         </div>
      </section>
 
@@ -891,11 +930,42 @@ p {
         </div>
     </div>
 </section>
-   <div class="product-section">
-        <h2>Wide Range Of Decking Products</h2>
-        <p>We offer a comprehensive range of decking materials, including pine, hardwood, and composite, suitable for all styles and budgets.</p>
-        <a href="products.html">Learn More</a> <!-- Link to the product page -->
+
+<div class="carousel">
+    <div class="carousel-track-container">
+        <div class="carousel-track">
+            <!-- Slide 1 -->
+            <section class="product-section product-one carousel-slide">
+                <h2>Wide Range Of <br> Decking Products</h2>
+     
+                <a href="products.html">Learn More</a>
+            </section>
+
+            <!-- Slide 2 -->
+            <section class="product-section product-two carousel-slide">
+                <h2>Custom Pergolas</h2>
+           
+                <a href="pergolas.html">Explore Pergolas</a>
+            </section>
+
+            <!-- Slide 3 -->
+            <section class="product-section product-three carousel-slide">
+                <h2>Handrails & Outdoor <br> Seating</h2>
+      
+                <a href="seating.html">Discover Seating</a>
+            </section>
+        </div>
     </div>
+
+    <!-- Navigation dots at the bottom -->
+    <div class="carousel-indicators">
+        <span class="carousel-dot" data-slide="0"></span>
+        <span class="carousel-dot" data-slide="1"></span>
+        <span class="carousel-dot" data-slide="2"></span>
+    </div>
+</div>
+
+
 
    <div class="titleheadphoto">
     <h2> Our Process</h2>
@@ -970,8 +1040,8 @@ p {
         <br>
         <div class="review-container">
             <div class="review">
-                <h3>Bathroom Renovation</h3>
-                <p>"Great service! The team at Mint Home Solutions did an amazing job renovating our bathroom. Highly recommended!"</p>
+                <h3>Backyard Deck Project</h3>
+                <p>"Great service! The team at Mint Home Solutions did an amazing job re-building our deck. Highly recommended!"</p>
                 <p class="customer">- John </p>
             </div>
             <div class="review">
@@ -980,7 +1050,7 @@ p {
                 <p class="customer">- Karleen Smith</p>
             </div>
             <div class="review">
-                <h3>Kitchen Reconfiguration</h3>
+                <h3>Outdoor Area</h3>
                 <p>"Cody was very efficient, experienced and professional. Job was completed with skill and very quickly."</p>
                 <p class="customer">- Amber</p>
             </div>
@@ -1062,14 +1132,56 @@ backToTopButton.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-const hamburgerMenu = document.querySelector('.hamburger-menu');
-const dropdownMenu = document.querySelector('.dropdown-menu');
+document.addEventListener('DOMContentLoaded', function () {
+    // Get the hamburger menu and navigation bar elements
+    const hamburgerMenu = document.querySelector('.hamburger-menu'); 
+    const navBar = document.querySelector('.nav-bar'); 
 
-hamburgerMenu.addEventListener('click', () => {
-  // Toggle the display of the dropdown menu
-  dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+    // Add click event listener to the hamburger menu
+    hamburgerMenu.addEventListener('click', () => {
+        // Toggle the nav-bar's visibility
+        if (navBar.style.display === 'none' || navBar.style.display === '') {
+            navBar.style.display = 'flex'; // Show the nav-bar
+        } else {
+            navBar.style.display = 'none'; // Hide the nav-bar
+        }
+    });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const track = document.querySelector('.carousel-track'); 
+    const dots = document.querySelectorAll('.carousel-dot'); 
+    let currentSlide = 0; // Start with the first slide
+
+    // Function to update the slide based on index
+    function updateSlide(index) {
+        // Calculate the offset for the transition
+        const offset = index * -110; 
+        track.style.transform = `translateX(${offset}%)`;
+
+        // Update which dot is active
+        dots.forEach(dot => dot.classList.remove('active')); // Remove all active classes
+        dots[index].classList.add('active'); // Add active class to the current dot
+    }
+
+    // Add click event to dots to navigate to specific slides
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            const slideIndex = parseInt(dot.getAttribute('data-slide'), 10); 
+            currentSlide = slideIndex; // Update the current slide
+            updateSlide(slideIndex); // Transition to the correct slide
+        });
+    });
+
+    // Automatically transition every 3 seconds
+    setInterval(() => {
+        currentSlide = (currentSlide + 1) % dots.length; // Cycle through slides
+        updateSlide(currentSlide); // Transition to the next slide
+    }, 3000);
+
+    // Initialize the carousel with the first slide
+    updateSlide(0);
+});
 
 
 </script>
